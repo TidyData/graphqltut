@@ -50,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'graphql_jwt.middleware.JSONWebTokenMiddleware', ### <---Add this line
 ]
 
 ROOT_URLCONF = 'hackernews.urls'
@@ -124,8 +125,8 @@ STATIC_URL = '/static/'
 
 GRAPHENE = {
     'SCHEMA': 'hackernews.schema.schema',
-    'MIDDLEWARE': [
-    #     'graphql_jwt.middleware.JSONWebTokenMiddleware',
+    'MIDDLEWARES': [
+        'graphql_jwt.middleware.JSONWebTokenMiddleware',
     ],
 }
 
