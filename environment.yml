@@ -1,0 +1,54 @@
+# conda env create --file=environment.yml
+# conda env update --file=environment.yml
+
+name: graphqltut
+
+channels:
+  - default
+  # - bokeh
+  # - conda-forge
+
+dependencies:
+  # production
+  - python>=3.8,<3.9
+  # - bokeh>=1.4
+  # - psycopg2
+  - pip
+  # - numpy
+  # - notebook
+  # - pandas
+  # - scipy
+  # - selenium
+  # - datashader
+  # - networkx
+  # - flask
+  # - phantomjs
+  # - holoviews
+
+  # development
+  # - pytest
+
+  - pip:  # https://github.com/conda/conda/tree/master/tests/conda_env/support/advanced-pip
+    - -r file:./requirements.txt  # production
+    - -r file:./requirements.txt.dev.txt
+    # # Global options can be tweaked.
+    # # For example, if you want to use a pypi mirror first:
+    # - --index-url https://pypi.doubanio.com/simple
+    # - --extra-index-url https://pypi.python.org/simple
+    # # (check https://www.pypi-mirrors.org/)
+
+    # # Current syntax still works
+    # - xmltodict==0.10.2
+
+    # # Install in editable mode.
+    # # More natural than - "--editable=git+https://github.com/neithere/argh.git#egg=argh
+    # - -e git+https://github.com/neithere/argh.git#egg=argh
+
+    # # You could also specify a package in a directory.
+    # # The directory can be relative to this environment file.
+    # - -e ./module_to_install_in_editable_mode
+
+    # # Use another requirements file.
+    # # Note that here also we can use relative paths.
+    # # pip will be run from the environment file directory, if provided.
+    # - -r file:another-project-requirements.txt
